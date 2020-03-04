@@ -1,0 +1,28 @@
+${albumData.map(reviews => {
+return `<h3>${reviews.name}</h3>
+<h3>${reviews.artist}</h3>
+<h3>${reviews.year_released}</h3>
+<h3>${reviews.genre}</h3>
+<h3>${reviews.name}</h3>
+<h3>${reviews.stars}</h3>
+<h3>${reviews.review}</h3>`
+})}
+
+
+
+<form action="/" method="POST">
+    <input type="hidden" name="restaurant_id" value="${data[0].id}">
+    <label>Title
+        <input type="text" name="title" placeholder="review title" />
+    </label>
+    <label>stars
+        <input type="text" name="stars" placeholder="Star rating" />
+    </label>
+    <label>Review
+        <textarea name="review" placeholder="my review of this restaurant"></textarea>
+    </label>
+    <button type="submit">Save Review</button>
+</form>
+
+
+<a href="/">Return Home</a>
