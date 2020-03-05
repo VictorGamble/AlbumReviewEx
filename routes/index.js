@@ -5,8 +5,6 @@ const albumModel = require('../models/albumModel')
 /* GET home page. */
 router.get('/', async function (req, res, next) {
   const data = await albumModel.getAllAlbums();
-  console.log(data)
-
 
   res.render('template', {
     locals: {
@@ -19,20 +17,32 @@ router.get('/', async function (req, res, next) {
   })
 })
 
-router.get('/:id?', async (req, res) => {
+
+
+router.post('/', async function (req, res) {
+  console.log(req.body);
   const {
-    id
-  } = req.params;
-  const albumData = await albumModel.getAlbumAndReviewDetails(id)
-  res.render('template', {
-    locals: {
-      title: albumData[0].name,
-      albumData: albumData
-    },
-    partials: {
-      partial: 'partial-single'
-    }
-  })
+    name,
+    title,
+    stars,
+    review,
+    reviewer_id,
+    album_id
+  } = req.body
+
+  const postData = await albumModel.addReviews(name,
+    title,
+    stars,
+    review,
+    reviewer_id,
+    album_id);
+  console.log(postData);
+
+  res.status(200).redirect('/');
 });
+
+
+
+
 
 module.exports = router;

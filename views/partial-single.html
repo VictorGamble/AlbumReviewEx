@@ -1,28 +1,52 @@
 ${albumData.map(reviews => {
-return `<h3>${reviews.name}</h3>
-<h3>${reviews.artist}</h3>
-<h3>${reviews.year_released}</h3>
-<h3>${reviews.genre}</h3>
+return `<h3>Album Review Title: ${reviews.name}</h3>
+<h3>Artist: ${reviews.artist}</h3>
+<h3>Year Released: ${reviews.year_released}</h3>
+<h3>Genre: ${reviews.genre}</h3>
 <h3>${reviews.name}</h3>
-<h3>${reviews.stars}</h3>
-<h3>${reviews.review}</h3>`
-})}
-
-
+<h3>Rating: ${reviews.stars} Stars</h3>
+<h3>Review: ${reviews.review}</h3>`
+})};
 
 <form action="/" method="POST">
-    <input type="hidden" name="restaurant_id" value="${data[0].id}">
-    <label>Title
-        <input type="text" name="title" placeholder="review title" />
+    <label>Name:
+        <input type="text" name="name" placeholder="Please Enter the name of your review">
     </label>
-    <label>stars
-        <input type="text" name="stars" placeholder="Star rating" />
+    <br>
+    <br>
+    <label>Title:
+        <input type="text" name="title" placeholder="please add review title">
     </label>
-    <label>Review
-        <textarea name="review" placeholder="my review of this restaurant"></textarea>
+    <br>
+    <br>
+    <label>Stars:
+        <input type="number" name="stars" placeholder="please your rating stars">
     </label>
+    <br>
+    <br>
+    <label>Review:
+        <textarea name="review" placeholder="Enter your review of the album"></textarea>
+    </label>
+    <br>
+    <br>
+    <label>Reviewer_id:
+        <input type="number" name="reviewer_id" placeholder="please your ID">
+    </label>
+    <br>
+    <br>
+    <label>Album_id
+        <input type="number" name="album_id" placeholder="please your the album id">
+    </label>
+    <br>
+    <br>
     <button type="submit">Save Review</button>
+
+
+
 </form>
+
+
+
 
 
 <a href="/">Return Home</a>
