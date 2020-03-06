@@ -24,7 +24,7 @@ router.get('/:id?', async (req, res) => {
     const albumData = await albumModel.getAlbumAndReviewDetails(id)
     res.render('template', {
         locals: {
-            title: albumData[0].name,
+            title: 'express',
             albumData: albumData
         },
         partials: {

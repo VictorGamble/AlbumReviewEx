@@ -1,4 +1,4 @@
-const db = require("./conn");
+const db = require('./conn');
 
 class albumModel {
     constructor(id, name, artist, year_released, genre, album_id) {
@@ -14,17 +14,17 @@ class albumModel {
             const response = await db.any(`SELECT * From album;`);
             return response;
         } catch (error) {
-            console.error("ERROR:", error);
+            console.error('ERROR:', error);
         }
     }
     static async getAlbumAndReviewDetails(id) {
         try {
             const response = await db.any(
-                "SELECT album.name, album.artist, album.year_released, album.genre, review.name, review.stars, review.review FROM reviews INNER JOIN album ON review.album_id = a.id;"
+                'SELECT a.name, a.artist, a.year_released, a.genre, re.name, re.stars, re.review FROM reviews re INNER JOIN album a ON re.album_id = a.id;'
             );
             return response;
         } catch (error) {
-            console.error("ERROR: ", error);
+            console.error('ERROR: ', error);
         }
     }
     static async addReviews(name, title, stars, review, reviewer_id, album_id) {
@@ -37,7 +37,7 @@ class albumModel {
             console.log(response);
             return response;
         } catch (error) {
-            console.error("ERROR", error);
+            console.error('ERROR', error);
             return error;
         }
     }
